@@ -1,0 +1,25 @@
+*{margin:0;padding:0;}
+body{font:13px 24px '宋体''微软雅黑';}
+
+.wp{width:960px;margin:0 auto;}
+.cl{clear:both;}
+
+.top{background-color:#eee;height:42px;margin-bottom:15px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
+.yemei{background-color:#eee;height:42px;padding:0 35px;margin:0 65px;}
+.y_top{width:600px;height:42px;float:left;}
+.y_top li{list-style:none;float:left;padding:5px 25px;height:42px;}
+.y_top li:hover{background:url(../images/yemei_hover.png)repeat-x;}
+.y_top a{text-decoration:none;font-size:20px;color:#333333;}
+.denglu{width:250px;height:42px;float:right;margin-bottom:0;}
+.denglu li{list-style:none;float:left;height:42px;padding:5px 25px;}
+.denglu li:hover{background:url(../images/yemei_hover.png)repeat-x;}
+.denglu a{text-decoration:none;font-size:20px;color:#333333;}
+
+.center{margin-bottom: 50px}
+
+.footer{background-color:#eee;height:150px;margin:80px 0 0 0;}
+.f_one {text-align: center;margin:0 0 15px 0;padding-top:20px;}
+.f_buttom{text-align: center}
+.f_buttom a{text-decoration:none;color:blue;font-size:16px;}
+.one {text-align: center;margin-top:15px}
+

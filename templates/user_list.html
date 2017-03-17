@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}用户列表{% endblock %}
+{% block content %}
+{% block beforehead %}
+{% load staticfiles %}
+<link rel='stylesheet' type='text/css' href='{% static "css/user_list.css" %}'>
+{% endblock %}
+<div class='wp'>
+	<div class='user_list'>
+		<ul>
+			<li><a href='/comments'>评论</a></li>
+			<li><a href='/blogs'>日志</a></li>
+			<li><a href='/yonghu'>用户</a></li>
+		</ul>
+	</div>
+	<div class='user'>
+		<table border="0" cellspacing="20" cellpadding="0">
+			<tr>
+				<th>用户</th>
+				<th>电子邮箱</th>
+				<th>注册时间</th>
+			</tr>
+			{% if user_list %}
+				{% for user in user_list %}
+				<tr>
+        			<td>{{user.username}}</td>
+        			<td>{{user.email}}</td>
+        			<td>{{user.date_joined|date:'Y-m-d'}}</td>
+        			
+        		</tr>
+        		 {% endfor %}
+			{% endif %}
+		</table>
+	</div>
+</div>
+
+{% endblock %}

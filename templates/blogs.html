@@ -1,0 +1,50 @@
+{% extends 'base.html '%}
+{% block title %}日志{% endblock %}
+{% block beforehead %}
+{% load staticfiles %}
+<link rel='stylesheet' type='text/css' href='{% static "css/blogs.css"%}'>
+{% endblock %}
+{% block content %}
+<div class='wp'>
+	<div class='blog_list'>
+		<ul>
+			<li><a href='/comments'>评论</a></li>
+			<li><a href='/blogs'>日志</a></li>
+			<li><a href='/yonghu'>用户</a></li>
+		</ul>
+	</div>
+	<div class='cl'>
+	</div>
+	<div class='create_blog'>
+		<span><a href='/blogs/create/'>新日志</a></span>
+	</div>
+	<div class='blog'>
+		<table border="0" cellspacing="" cellpadding="0">
+			<tr>
+				<th>标题/摘要</th>
+				<th>作者</th>
+				<th>创建时间</th>
+				<th><span>操作</span></th>
+			</tr>
+			{% if blogs %}
+			{% for blog in blogs %}
+				<tr>
+        			<td>{{blog.summary}}</td>
+        			<td>{{blog.user_name}}</td>
+        			<td>{{blog.create_at|date:"Y-m-d"}}</td>
+        			<td>
+        				<span>
+        					<a href='/blogs/delete/{{blog.name}}'><i class='shanchu'></i>删除</a>
+        					<a href='/blogs/change/{{blog.name}}'><i class='bianji'></i>编辑</a>
+        				</span>
+        			</td>
+        		</tr>
+        	{% endfor %}
+			{% else %}
+         	<tr><td>.....还没有发表任何blog</td></tr>
+       		{% endif %}
+       	</table>
+        
+	</div>
+</div>
+{% endblock %}

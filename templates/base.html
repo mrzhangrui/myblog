@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}?{% endblock %} -myblog</title>
+		<meta charset='utf8'>
+		{% load staticfiles %}
+		<link rel='stylesheet' type='text/css' href='{% static "css/base.css" %}'>
+		{% block beforehead %}{% endblock %}
+	</head>
+	<body>
+		<div class='top'>
+		<div class='yemei'>
+			<div class='wp'>
+				<div class='y_top'>
+					<ul>
+						<li><a href='/'>我的blog</a></li>
+						<li><a href="/blogs">日志</a></li>
+						<li><a href='https://github.com/michaelliao/awesome-python3-webapp/tree/day-01' target='_blank'>源码</a></li>
+						<li><a href='http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000' target='_blank'>教程</a></li>
+					</ul>
+				</div>
+				<div class='denglu'>
+					<ul>
+					{% if user.is_authenticated %}
+						<li><a href='#0'>{{user.username}}</a></li>
+						<li><a href="/signout">登出</a></li>
+					{% else %}
+						<li><a href='/signin'>登录</a></li>
+						<li><a href='/register'>注册</a></li>
+					{% endif %}
+					</ul>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class='cl'>
+		</div>
+		<div class='center'>
+			{% block content %}
+			{% endblock %}
+		</div>
+		<div class='footer'>
+			<div class='wp'>
+				<div class='f_one'>
+					<a href=""><img src='{% static "images/1.PNG" %}'></a>
+					<a href=""><img src='{% static "images/2.PNG" %}'></a>
+					<a href=""><img src='{% static "images/3.PNG" %}'></a>
+				</div>
+				<div class='f_buttom'>
+					<p class='one'>
+						Powered by<a href="#"> First Python Webapp</a> Copyright &amp copy:2016. [<a href="/admin/" target="_blank"> manage</a>]
+					</p>
+					<p class='one'>
+					<a href="http://www.baidu.com" target="_blank">百度</a>. All rights reserved
+					</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+{% block title %}编写日志{% endblock %}
+{% block beforehead %}
+{% load staticfiles %}
+<link rel='stylesheet' type='text/css' href='{% static "css/create_blog.css" %}'>
+{% endblock %}
+{% block content %}
+<div class='wp'>
+	{% if error %}
+		{% for e in error %}
+			<p>{{e}}</p>
+		{% endfor %}
+	{% endif %}	
+	{% if blog %}
+		<h3>修改日志</h3><br>
+		<form method='post'>{% csrf_token %}
+			<p>标题:</p>
+			<input type='text' name='title' value={{blog.name}}><br>
+			<p>概要:</p>
+			<input type='text' name='summary' value={{blog.summary}}><br><br>
+			<p>日志内容:</p><br>
+			<textarea rows='10' cols='70' name='content'>{{blog.content}}</textarea><br>
+			<button type='submit' class='tijiao'>保存</button>
+			<a href='/blogs/'>取消</a>
+		</form>
+	{% else %}
+		<h3>创建日志</h3><br>
+		<form method='post'>{% csrf_token %}
+			<p>标题:</p>
+			<input type='text' name='title'><br>
+			<p>概要:</p>
+			<input type='text' name='summary' ><br><br>
+			<p>日志内容:</p>
+			<textarea rows='10' cols='70' name='content' placeholder="编辑日志..."></textarea><br>
+			<button type='submit' class='tijiao'>保存</button>
+			<a href='/blogs/'>取消</a>
+		</form>
+	{% endif %}
+</form>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}{{blog.name}}{% endblock %}
+{% block beforehead %}
+{% load staticfiles %}
+<link rel='stylesheet' type='text/css' href='{% static "css/blog.css" %}'>
+{% endblock %}
+{% block content %}
+	<div class='blog_desc'>
+		<article>
+			<p class='blog_name'>{{blog.name}}</p>
+			<p class='blog_date'>创建于{{blog.create_at}}</p>
+			<p class='blog_content'>{{blog.content}}</p>
+		</article>
+		<article>
+			<h3>发表评论</h3>
+			<form method='POST'>{% csrf_token %}
+				<textarea rows="6" cols="80" name="comment" placeholder="说点什么吧。。。。"></textarea>
+				<br>
+				<input type='submit' value='发表评论'>
+			</form>
+			<br>
+			<h3>最新评论</h3>
+			{% if error %}
+			<font color='red'>请先登录才能评论</font>
+			{% endif %}
+			<ul>
+				{% if comments %}
+				{% for comment in comments %}
+				
+					<li>
+						<img src={{comment.user_image}}>
+						<h4>{{comment.user_name}}{% ifequal comment.user_name blog.user_name%}(作者){% endifequal %}</h4>
+						<br>
+						<p class='comment_date'>{{comment.create_at}}</p>
+						<p class='comment_content'>{{comment.content}}</p>
+
+					</li>
+				
+				{% endfor %}
+				{% else %}
+					<p>还没有人评论...</p>
+				{% endif %}
+			</ul>
+		</article>
+	</div>
+	<div class='auth'>
+		<div class='auth_center'>
+			<img width=120px height=120px src='{% static "images/tuxiang.png" %}'>
+		<h3>寻觅</h3>
+		</div>
+	</div>
+	<div class='cl'>
+	</div>
+{% endblock %}
