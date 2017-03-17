@@ -23,7 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'tmxhunrcpm6pyyv870hn$=v-7vqn016%*4_ml*e_e$stnqkp50'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+import socket
+if socket.gethostname()=='XB-20160909NICW'
+    DEBUG = TEMPLATE_DEBUG=True
+else:
+    DEBUG = TEMPLATE_DEBUG=False
 
 ALLOWED_HOSTS = ['*']
 
@@ -112,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -120,11 +124,18 @@ USE_L10N = True
 
 USE_TZ = True
 
+#ADIMNS=(
+#   ('zhangrui','754130788@qq.com'),
+#   )
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'tatic')
 
 STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
+
+MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
