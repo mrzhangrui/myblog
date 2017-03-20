@@ -19,17 +19,17 @@ from blog import views as blog_views
 
 urlpatterns = [
 	url(r'^admin/', admin.site.urls),
-    url(r'^$',blog_views.home),
+   	url(r'^$',blog_views.home),
 	url(r'^signin/$',blog_views.signin),
 	url(r'^register/$',blog_views.register),
 	url(r'^signout/$',blog_views.signout),
-    url(r'^blogs/$',blog_views.blogs),
-    url(r'^blog/(?P<name>\w+)/$',blog_views.blog),
-    url(r'^blogs/delete/(?P<name>\w+)/$',blog_views.delete),
-    url(r'^blogs/change/(?P<name>\w+)/$',blog_views.change),
-    url(r'^blogs/create/$',blog_views.create_blog),
-    url(r'^comments/$',blog_views.comments),
-    url(r'^yonghu/$',blog_views.yonghu_list),
-    url(r'^comment/delete/?P<name>\w+$',blog_views.comment_delete),
-    url(r'^yonghu/delete/?P<username>\w+$',blog_views.yonghu_delete),
-]
+	url(r'^blogs/$',blog_views.blogs),
+	url(r'^blog/(?P<name>\w+)/$',blog_views.blog),
+	url(r'^blogs/delete/(?P<name>\w+)/$',blog_views.delete),
+	url(r'^blogs/change/(?P<name>\w+)/$',blog_views.change),
+	url(r'^blogs/create/$',blog_views.create_blog),
+	url(r'^comments/$',blog_views.comments),
+	url(r'^yonghu/$',blog_views.yonghu_list),
+	url(r'^comment/delete/?P<name>\w+$',blog_views.comment_delete),
+	url(r'^yonghu/delete/?P<username>\w+$',blog_views.yonghu_delete),
+	]
