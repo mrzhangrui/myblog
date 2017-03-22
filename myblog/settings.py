@@ -24,7 +24,7 @@ SECRET_KEY = 'tmxhunrcpm6pyyv870hn$=v-7vqn016%*4_ml*e_e$stnqkp50'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 import socket
-if socket.gethostname()=='XB-20160909NICW'
+if socket.gethostname()=='XB-20160909NICW':
     DEBUG = TEMPLATE_DEBUG=True
 else:
     DEBUG = TEMPLATE_DEBUG=False
